@@ -12,54 +12,45 @@ $(document).ready(function () {
     }
   });
 
-  // Update h2 tag with selected locations (states and cities)
-  function updateLocations(states, cities) {
-    const locations = Object.assign({}, states, cities);
-    if (Object.values(locations).length === 0) {
-      $('.locations h4').html('&nbsp;');
-    } else {
-      $('.locations h4').text(Object.values(locations).join(', '));
-    }
-  }
-
-  // Obtain selected states
-  const states = {};
-  $('.locations ul h2 input[type="checkbox"]').click(function () {
+ 
+  // Obtain selected categories
+  const htmlcata = {};
+  $('.htmlcategories ul li input[type="checkbox"]').click(function () {
     if ($(this).is(":checked")) {
-      states[$(this).attr('data-id')] = $(this).attr('data-name');
+      htmlcata[$(this).attr('data-id')] = $(this).attr('data-name');
     } else {
-      delete states[$(this).attr('data-id')];
+      delete htmlcata[$(this).attr('data-id')];
     }
-    updateLocations(states, cities);
+    $('.htmlcategories h6').text(Object.values(htmlcata).join(', '));
   });
 
-  // Obtain selected cities
-  const cities = {};
-  $('.locations ul ul li input[type="checkbox"]').click(function () {
+   // Obtain selected amenities
+  const languages = {};
+  $('.language input[type="checkbox"]').click(function () {
     if ($(this).is(":checked")) {
-      cities[$(this).attr('data-id')] = $(this).attr('data-name');
+      languages[$(this).attr('data-id')] = $(this).attr('data-name');
     } else {
-      delete cities[$(this).attr('data-id')];
+      delete languages[$(this).attr('data-id')];
     }
-    updateLocations(states, cities);
+    $('.language h6').text(Object.values(languages).join(', '));
   });
 
-  // Obtain selected amenities
-  const amenities = {};
-  $('.amenities input[type="checkbox"]').click(function () {
+   // Obtain selected regions
+   const regions = {};
+  $('.region input[type="checkbox"]').click(function () {
     if ($(this).is(":checked")) {
-      amenities[$(this).attr('data-id')] = $(this).attr('data-name');
+      regions[$(this).attr('data-id')] = $(this).attr('data-name');
     } else {
-      delete amenities[$(this).attr('data-id')];
+      delete regions[$(this).attr('data-id')];
     }
-    $('.amenities h4').text(Object.values(amenities).join(', '));
+    $('.region h6').text(Object.values(regions).join(', '));
   });
 
   // Display each place that matches the filters
   function search (filters = {}) {
     $.ajax({
       type: 'POST',
-      url: `http://${HOST}:5002/api/v1/places_search`,
+      url: `http://${HOST}:5002/api/v1/tender_search`,
       data: JSON.stringify(filters),
       dataType: 'json',
       contentType: 'application/json',
@@ -88,9 +79,9 @@ $(document).ready(function () {
   // Search event with selected filters
   $('#search').click(function () {
     const filters = {
-      'states': Object.keys(states),
-      'cities': Object.keys(cities),
-      'amenities': Object.keys(amenities)
+      'htmlcata': Object.keys(cata),
+      'regions': Object.keys(regions),
+      'languages': Object.keys(languages)
     };
     search(filters);
   });

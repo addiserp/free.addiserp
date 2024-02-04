@@ -28,20 +28,25 @@ def index():
 
     regions = storage.all(Region).values()
     regions = sorted(regions, key=lambda k: k.name)
-    st_ct = []
 
     """for region in regions:
         st_ct.append([region, sorted(region.tenders, key=lambda k: k.name)])
     """
     catagories = storage.all(Category).values()
     catagories = sorted(catagories, key=lambda k: k.name)
-
+    
+    ten_all = []
     tenders = storage.all(Tender).values()
     tenders = sorted(tenders, key=lambda k: k.name)
-
-    return render_template('main-layout.html',
-                           cata=catagories, languages=languages, regions=regions
-                           )
+    
+    """
+    for tender in tenders:
+        ten_all.append([tender, sorted(tender.languages, key=lambda k: k.name)])
+        ten_all.append([tender, sorted(tender.regions, key=lambda k: k.name)])
+    """
+    return render_template('main-layout.html', cata=catagories,
+                           languages=languages, regions=regions,
+                           tenders=tenders)
 
 
 if __name__ == "__main__":

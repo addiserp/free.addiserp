@@ -14,31 +14,36 @@
         </a>
       </li><!-- End Dashboard Nav -->
 
-      <li class="nav-item">
+
         <div class="language">
-          
-          <select class="language-select" id="languageid" required>
-            <option selected disabled value="">Choose Language</option>
-            {% for language in languages %}
-            <option data-id="{{ language.id }}" data-name="{{ language.name }}">{{ language.name }}</option>
+          <h4>Languages</h4>
+				  <h6></h6>
+          <ul>
+               {% for language in languages %}
+               <li>
+                  <input type="checkbox" data-id="{{ language.id }}" data-name="{{ language.name }}" style="margin-right: 10px;">{{ language.name }}
+              </li>
             {% endfor %}
-          </select>
+        </ul>
         </div>
         <div class="region">
-
-          <select class="region-select" id="regionid" required>
-            <option selected disabled value="">Choose Region</option>
+          <h4>Region</h4>
+				  <h6></h6>
+          <ul>
             {% for region in regions %}
-            <option data-id="{{ region.id }}" data-name="{{ region.name }}">{{ region.name }}</option>
+          <li>
+            <input type="checkbox" data-id="{{ region.id }}" data-name="{{ region.name }}" style="margin-right: 10px;">{{ region.name }}
+          </li>
             {% endfor %}
-          </select>
+           
         </div>
-        <div class="daterange">
 
-        </div>
+        <div class="daterange">&nbsp;</div>
+        <li class="nav-item">
+       <div class="htmlcategories">
  
-       <div class="categories">
-        <label for="categorieslist" class="category">Categories</label>
+        <h4>Categories</h4>
+				<h6>&nbsp;</h6>
         <ul id="components-nav" class="nav-content " data-bs-parent="#sidebar-nav">
                      
 						{% for catagory in cata %}
