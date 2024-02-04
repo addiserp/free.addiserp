@@ -3,19 +3,24 @@
 Contains the class DBStorage
 """
 
+from os import getenv
+import sqlalchemy
+from sqlalchemy import create_engine
+from sqlalchemy.orm import scoped_session, sessionmaker
 import models
 from models.base_model import BaseModel, Base
 from models.region import Region
 from models.tender import Tender
 from models.category import Category
 from models.biddoc import Biddoc
-from os import getenv
-import sqlalchemy
-from sqlalchemy import create_engine
-from sqlalchemy.orm import scoped_session, sessionmaker
+from models.user import User
+from models.utype import Utype
+from models.language import Language
+
 
 classes = {"Category": Category, "BaseModel": BaseModel, "Tender": Tender,
-           "Region": Region, "Biddoc": Biddoc}
+           "Region": Region, "Biddoc": Biddoc, "User": User,
+           "Utype": Utype, "Language": Language}
 
 
 class DBStorage:
@@ -25,17 +30,17 @@ class DBStorage:
 
     def __init__(self):
         """Instantiate a DBStorage object"""
-        HBNB_MYSQL_USER = getenv('HBNB_MYSQL_USER')
-        HBNB_MYSQL_PWD = getenv('HBNB_MYSQL_PWD')
-        HBNB_MYSQL_HOST = getenv('HBNB_MYSQL_HOST')
-        HBNB_MYSQL_DB = getenv('HBNB_MYSQL_DB')
-        HBNB_ENV = getenv('HBNB_ENV')
+        FREE_MYSQL_USER = "free_dev1"
+        FREE_MYSQL_PWD = "free_dev_pwd1"
+        FREE_MYSQL_HOST = "localhost"
+        FREE_MYSQL_DB = "free_dev_db1"
+        FREE_ENV = getenv('FREE_ENV1')
         self.__engine = create_engine('mysql+mysqldb://{}:{}@{}/{}'.
-                                      format(HBNB_MYSQL_USER,
-                                             HBNB_MYSQL_PWD,
-                                             HBNB_MYSQL_HOST,
-                                             HBNB_MYSQL_DB))
-        if HBNB_ENV == "test":
+                                      format(FREE_MYSQL_USER,
+                                             FREE_MYSQL_PWD,
+                                             FREE_MYSQL_HOST,
+                                             FREE_MYSQL_DB))
+        if FREE_ENV == "test":
             Base.metadata.drop_all(self.__engine)
 
     def all(self, cls=None):

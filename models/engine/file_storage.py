@@ -3,16 +3,21 @@
 Contains the FileStorage class
 """
 
-import models
+
 import json
+import models
 from models.base_model import BaseModel
 from models.region import Region
 from models.tender import Tender
 from models.category import Category
 from models.biddoc import Biddoc
+from models.user import User
+from models.utype import Utype
+from models.language import Language
 
 classes = {"Category": Category, "BaseModel": BaseModel, "Tender": Tender,
-           "Region": Region, "Biddoc": Biddoc}
+           "Region": Region, "Biddoc": Biddoc, "User": User,
+           "Utype": Utype, "Language": Language}
 
 
 class FileStorage:

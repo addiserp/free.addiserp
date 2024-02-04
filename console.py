@@ -3,17 +3,22 @@
 
 import cmd
 from datetime import datetime
+import shlex  # for splitting the line along spaces except in double quotes
 import models
-from models.base_model import BaseModel
+from models.base_model import BaseModel, models
 from models.category import Category
 from models.region import Region
 from models.tender import Tender
 from models.biddoc import Biddoc
+from models.language import Language
+from models.user import User
+from models.utype import Utype
 
-import shlex  # for splitting the line along spaces except in double quotes
 
 classes = {"Category": Category, "BaseModel": BaseModel, "Tender": Tender,
-           "Region": Region, "Biddoc": Biddoc}
+           "Region": Region, "Biddoc": Biddoc, "User": User,
+           "Utype": Utype, "Language": Language}
+
 
 
 class HBNBCommand(cmd.Cmd):
@@ -42,7 +47,6 @@ class HBNBCommand(cmd.Cmd):
                 value = kvp[1]
                 if value[0] == value[-1] == '"':
                     value = shlex.split(value)[0].replace('_', ' ')
-                    print(value)
                 else:
                     try:
                         value = int(value)

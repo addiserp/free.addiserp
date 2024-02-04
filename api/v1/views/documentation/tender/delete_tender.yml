@@ -1,0 +1,15 @@
+    deletes a tender based on id
+    ---
+    tags:
+      - Tenders
+    parameters:
+      - name: tender_id
+        in: path
+        type: string
+        required: true
+        description: id of the tender
+    responses:
+      404:
+        description: Tender  not found!
+      200:
+        description: Request completed successfully

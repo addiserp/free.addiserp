@@ -1,0 +1,24 @@
+    Links a Review to a Tender
+    ---
+    tags:
+      - Tender_Categories
+    parameters:
+      - name: tender_id
+        in: path
+        type: string
+        required: true
+        description: The id of the Amenity
+      - name: category_id
+        in: path
+        type: string
+        required: true
+        description: The id of the Tender to link to
+
+
+    responses:
+      404:
+        description: resource not found!
+      201:
+        description: Successful request
+      200:
+        description: Category already linked to Tender

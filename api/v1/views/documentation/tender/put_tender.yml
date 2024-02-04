@@ -1,0 +1,21 @@
+    Updates a tender based on id
+    ---
+    tags:
+      - Tenders
+    parameters:
+      - name: tender_id
+        in: path
+        type: string
+        required: true
+        description: id of the tender
+      - name: update_request
+        in: body
+        required: true
+
+    responses:
+      404:
+        description: tender not found!
+      400:
+        description: Not a valid JSON
+      200:
+        description: Request completed successfully

@@ -1,0 +1,36 @@
+get a list of cities based on the category_id
+---
+tags:
+  - Cities
+parameters:
+  - name: category_id
+    in: path
+    type: string
+    required: true
+    description: The uniqe id of the category
+responses:
+  404:
+    description: No category is linked to the ID!
+  200:
+    description: Request completed successfully
+    schema:
+      type: array
+      items:
+        properties:
+          __class__:
+            type: string
+          created_at:
+            type: string
+            description: time of creation of the instance
+          updated_at:
+             type: string
+             description: time of last update of the instance
+          id:
+            type: string
+            description: The uuid of the instance
+          category_id:
+             type: string
+             description: uuid of the tender's category
+          name:
+             type: string
+             description: tender name

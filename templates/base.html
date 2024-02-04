@@ -26,12 +26,15 @@
   <link href="../static/assets/vendor/remixicon/remixicon.css?cache_id={{ cache_id }}" rel="stylesheet">
   <link href="../static/assets/vendor/simple-datatables/style.css?cache_id={{ cache_id }}" rel="stylesheet">
 
+  <!--jquary-->
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
   <!-- Template Main CSS File -->
   <link href="../static/assets/css/style.css?cache_id={{ cache_id }}" rel="stylesheet">
   <link href="../static/assets/css/mystyle.css?cache_id={{ cache_id }}" rel="stylesheet">
+  <script type="text/javascript" src="../static/assets/scripts/freejs.js?cache_id={{ cache_id }}"></script>
 
-  <!--jquary-->
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
 </head>
 
 <body>
@@ -56,6 +59,7 @@
     <div class="toadvertizment">
       <div class="top-ads">==================Place your advert here!!=================</div>
     </div><!-- End Search Bar -->
+    <div id="api_status"></div>
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
 
@@ -64,7 +68,7 @@
             <i class="bi bi-search"></i>
           </a>
         </li><!-- End Search Icon-->
-
+        
         <li class="nav-item dropdown">
 
           <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">

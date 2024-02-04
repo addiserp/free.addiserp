@@ -1,4 +1,79 @@
 /** free addis custum css */
+.nav-content {
+  position: fixed;
+  top: 210px;
+  left: 0;
+  bottom: 0;
+  width: 300px;
+  height: 300px;
+  z-index: 996;
+  transition: all 0.3s;
+  padding: 20px;
+  overflow-y: auto;
+  scrollbar-width: auto;
+  scrollbar-color: #bbb7cf transparent;
+  box-shadow: 0px 0px 20px rgba(1, 41, 112, 0.1);
+  background-color: #fff;
+}
+.searchme {
+  position: fixed;
+  top: 510px;
+  left: 0;
+  bottom: 0;
+  width: 300px;
+  height: 300px;
+  z-index: 996;
+  transition: all 0.3s;
+  padding: 20px;
+  overflow-y: auto;
+  scrollbar-width: auto;
+  scrollbar-color: #bbb7cf transparent;
+  box-shadow: 0px 0px 20px rgba(1, 41, 112, 0.1);
+  background-color: #fff;
+}
+.others {
+  position: fixed;
+  top: 570px;
+  left: 0;
+  bottom: 0;
+  width: 300px;
+  height: 300px;
+  z-index: 996;
+  transition: all 0.3s;
+  padding: 20px;
+  overflow-y: auto;
+  scrollbar-width: auto;
+  scrollbar-color: #bbb7cf transparent;
+  box-shadow: 0px 0px 20px rgba(1, 41, 112, 0.1);
+  background-color: #fff;
+}
+.others .nav-heading {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #899bbd;
+  font-weight: 600;
+  margin: 10px 0 5px 15px;
+}
 .header .toadvertizment .top-ads{
   color: #3700ff;
+}
+header #api_status {
+  position: absolute;
+  top: 20px;
+  right: 250px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #f30202;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header #api_status.available {
+  background-color: #07c737;
+}
+
+header #api_status.notavailable  {
+  background-color: yellow;
 }

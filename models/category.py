@@ -10,11 +10,9 @@ from sqlalchemy.orm import relationship
 
 class Category(BaseModel, Base):
     """Representation of Category """
-    if models.storage_t == 'db':
-        __tablename__ = 'categories'
-        name = Column(String(128), nullable=False)
-    else:
-        name = ""
+
+    __tablename__ = 'categories'
+    name = Column(String(128), nullable=False)
 
     def __init__(self, *args, **kwargs):
         """initializes Category"""

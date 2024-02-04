@@ -4,6 +4,7 @@ from models import storage
 from models.region import Region
 from models.tender import Tender
 from models.category import Category
+from models.language import Language
 from models.biddoc import Biddoc
 from os import environ
 from flask import Flask, render_template
@@ -11,7 +12,7 @@ import uuid
 app = Flask(__name__)
 # app.jinja_env.trim_blocks = True
 # app.jinja_env.lstrip_blocks = True
-
+# FREE_MYSQL_USER=free_dev FREE_MYSQL_PWD=free_dev_pwd FREE_MYSQL_HOST=localhost FREE_MYSQL_DB=free_dev_db FREE_TYPE_STORAGE=db
 
 @app.teardown_appcontext
 def close_db(error):
@@ -22,6 +23,9 @@ def close_db(error):
 @app.route('/', strict_slashes=False)
 def index():
     """ Free Addis is alive! """
+    languages = storage.all(Language).values()
+    languages = sorted(languages, key=lambda k: k.name)
+
     regions = storage.all(Region).values()
     regions = sorted(regions, key=lambda k: k.name)
     st_ct = []
@@ -36,7 +40,7 @@ def index():
     tenders = sorted(tenders, key=lambda k: k.name)
 
     return render_template('main-layout.html',
-                           cata=catagories,
+                           cata=catagories, languages=languages, regions=regions
                            )
 
 

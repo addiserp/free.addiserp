@@ -15,24 +15,51 @@
       </li><!-- End Dashboard Nav -->
 
       <li class="nav-item">
-        <a class="nav-link" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-menu-button-wide"></i><span>Tender Catagory</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="components-nav" class="nav-content" data-bs-parent="#sidebar-nav">
+        <div class="language">
+          
+          <select class="language-select" id="languageid" required>
+            <option selected disabled value="">Choose Language</option>
+            {% for language in languages %}
+            <option data-id="{{ language.id }}" data-name="{{ language.name }}">{{ language.name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="region">
+
+          <select class="region-select" id="regionid" required>
+            <option selected disabled value="">Choose Region</option>
+            {% for region in regions %}
+            <option data-id="{{ region.id }}" data-name="{{ region.name }}">{{ region.name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="daterange">
+
+        </div>
+ 
+       <div class="categories">
+        <label for="categorieslist" class="category">Categories</label>
+        <ul id="components-nav" class="nav-content " data-bs-parent="#sidebar-nav">
                      
 						{% for catagory in cata %}
 					<li>
-              <a href="components-alerts.html">
-							<i class="bi bi-circle"></i><span>{{ catagory["name"] }}</span>
-							 </a>
+              
+		        <input type="checkbox" data-id="{{ catagory.id }}" data-name="{{ catagory.name }}" style="margin-right: 10px;">{{ catagory.name }}
 					</li>
 						{% endfor %}
            
-				
+          
           
         </ul>
       </li><!-- End Components Nav -->    
+    </div>
+ 
+    <div class="searchme">
+        <button type="button" class="btn btn-primary" id="mysearch"><i class="bi bi-search me-1"></i> Search</button>
+        <button type="button" class="btn btn-warning" id="reset"><i class="bi bi-question-circle me-1"></i> Reset</button>
+    </div>
 
+  <div class="others">
       <li class="nav-heading">Others</li>
 
       <li class="nav-item">
@@ -71,6 +98,6 @@
       </li><!-- End Login Page Nav -->
 
     </ul>
-
+  </div>
   </aside><!-- End Sidebar-->
   {% endblock %}
