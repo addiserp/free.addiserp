@@ -1,25 +1,25 @@
-    Search Places with a POST request.
+    Search tenders with a POST request.
     ---
     tags:
-      - Places
+      - tenders
     parameters:
       - name: user_id and name
         in: body
         required: false
         requires:
-          - states
-          - cities
-          - amenities
+          - languages
+          - regions
+          - categories
         properties:
-          states:
+          languages:
             type: array
             items:
               type: string
-          cities:
+          regions:
             type: array
             items:
               type: string
-          amenities:
+          categories:
             type: array
             items:
               type: string

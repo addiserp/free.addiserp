@@ -1,11 +1,43 @@
 /** free addis custum css */
-.nav-content {
+.nav-item-lan {
   position: fixed;
-  top: 400;
+  top: 120px;
   left: 0;
   bottom: 0;
   width: 300px;
-  height: 400px;
+  height: 110px;
+  z-index: 996;
+  transition: all 0.3s;
+  padding: 20px;
+  overflow-y: auto;
+  scrollbar-width: auto;
+  scrollbar-color: #bbb7cf transparent;
+  box-shadow: 0px 0px 20px rgba(1, 41, 112, 0.1);
+  background-color: #fff;
+}
+.nav-item-reg {
+  position: fixed;
+  top: 230px;
+  left: 0;
+  bottom: 0;
+  width: 300px;
+  height: 200px;
+  z-index: 996;
+  transition: all 0.3s;
+  padding: 20px;
+  overflow-y: auto;
+  scrollbar-width: auto;
+  scrollbar-color: #bbb7cf transparent;
+  box-shadow: 0px 0px 20px rgba(1, 41, 112, 0.1);
+  background-color: #fff;
+}
+.nav-item-cate {
+  position: fixed;
+  top: 425px;
+  left: 0;
+  bottom: 0;
+  width: 300px;
+  height: 200px;
   z-index: 996;
   transition: all 0.3s;
   padding: 20px;
@@ -17,11 +49,11 @@
 }
 .searchme {
   position: fixed;
-  top: 530px;
+  top: 630px;
   left: 0;
   bottom: 0;
   width: 300px;
-  height: 300px;
+  height: 60px;
   z-index: 996;
   transition: all 0.3s;
   padding: 20px;
@@ -33,7 +65,7 @@
 }
 .others {
   position: fixed;
-  top: 590px;
+  top: 690px;
   left: 0;
   bottom: 0;
   width: 300px;

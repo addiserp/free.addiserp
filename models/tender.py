@@ -43,6 +43,8 @@ class Tender(BaseModel, Base):
     language_id = Column(String(60), ForeignKey('languages.id'), nullable=False)
     name = Column(String(128), nullable=False)
     doc_price = Column(Integer, nullable=False, default=0)
+    bidbond = Column(Integer, nullable=False, default=0)
+    
     ann_date = Column(DateTime, default=datetime.utcnow)
     closing_date = Column(DateTime, default=datetime.utcnow)
     head_content = Column(Text, nullable=True)

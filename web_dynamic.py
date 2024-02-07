@@ -44,7 +44,7 @@ def index():
         ten_all.append([tender, sorted(tender.languages, key=lambda k: k.name)])
         ten_all.append([tender, sorted(tender.regions, key=lambda k: k.name)])
     """
-    return render_template('main-layout.html', cata=catagories,
+    return render_template('main-layout.html', categories=catagories,
                            languages=languages, regions=regions,
                            tenders=tenders)
 

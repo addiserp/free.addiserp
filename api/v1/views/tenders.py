@@ -95,7 +95,7 @@ def post_tender(region_id):
     return make_response(jsonify(instance.to_dict()), 201)
 
 @app_views.route('/tender_search', methods=['POST'], strict_slashes=False)
-@swag_from('documentation/place/post_search.yml', methods=['POST'])
+@swag_from('documentation/tender/post_search.yml', methods=['POST'])
 def tender_search():
     """
     Retrieves all tender objects depending of the JSON in the body
@@ -108,10 +108,10 @@ def tender_search():
     data = request.get_json()
 
     if data and len(data):
-        categories = data.get('htmlcata', None)
+        categories = data.get('categories', None)
         regions = data.get('regions', None)
         languages = data.get('languages', None)
-
+    
     if not data or not len(data) or (
             not categories and
             not regions and
@@ -119,39 +119,38 @@ def tender_search():
         tenders = storage.all(Tender).values()
         list_tenders = []
         for tender in tenders:
-            list_tenders.append(tenders.to_dict())
+            list_tenders.append(tender.to_dict())
         return jsonify(list_tenders)
-
+    
     list_tenders = []
-    if categories:
-        categories_obj = [storage.get(Category, s_id) for s_id in categories]
-        for category in categories_obj:
-            if category:
-                for tend in category.tenders:
-                    if regions:
-                        for tendera in tenders.regions:
-                            list_tenders.append(tendera)
-    """
-    if cities:
-        city_obj = [storage.get(City, c_id) for c_id in cities]
-        for city in city_obj:
-            if city:
-                for place in city.places:
-                    if place not in list_places:
-                        list_places.append(place)
+    if languages:
+        language_obj = [storage.get(Language, l_id) for l_id in languages]
+        for language in language_obj:
+            if language:
+                for tender in language.tenders:
+                    if tender not in list_tenders:
+                        list_tenders.append(tender)
+    if regions:
+        region_obj = [storage.get(Region, r_id) for r_id in regions]
+        for region in region_obj:
+            if region:
+                for tender in region.tenders:
+                    if tender not in list_tenders:
+                        list_tenders.append(tender)
 
-    if amenities:
-        if not list_places:
-            list_places = storage.all(Place).values()
-        amenities_obj = [storage.get(Amenity, a_id) for a_id in amenities]
-        list_places = [place for place in list_places
-                       if all([am in place.amenities
-                               for am in amenities_obj])]
-    """
-    places = []
+    if categories:
+        if not list_tenders:
+            list_tenders = storage.all(Tender).values()
+
+        categories_obj = [storage.get(Category, c_id) for c_id in categories]
+        list_tenders = [tender for tender in list_tenders
+                       if all([am in tender.categories
+                               for am in categories_obj])]
+    
+    tenders = []
     for p in list_tenders:
         d = p.to_dict()
-        d.pop('languages', None)
-        places.append(d)
+        d.pop('categories', None)
+        tenders.append(d)
 
-    return jsonify(places)
+    return jsonify(tenders)

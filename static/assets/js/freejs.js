@@ -12,41 +12,40 @@ $(document).ready(function () {
     }
   });
 
- 
-  // Obtain selected categories
-  const htmlcata = {};
-  $('.htmlcategories ul li input[type="checkbox"]').click(function () {
-    if ($(this).is(":checked")) {
-      htmlcata[$(this).attr('data-id')] = $(this).attr('data-name');
-    } else {
-      delete htmlcata[$(this).attr('data-id')];
-    }
-    $('.htmlcategories h6').text(Object.values(htmlcata).join(', '));
-  });
-
-   // Obtain selected amenities
+   // Obtain selected languages
   const languages = {};
-  $('.language input[type="checkbox"]').click(function () {
+  $('.nav-item-lan input[type="checkbox"]').click(function () {
     if ($(this).is(":checked")) {
       languages[$(this).attr('data-id')] = $(this).attr('data-name');
     } else {
       delete languages[$(this).attr('data-id')];
     }
-    $('.language h6').text(Object.values(languages).join(', '));
+    $('.nav-item-lan h6').text(Object.values(languages).join(', '));
   });
 
    // Obtain selected regions
    const regions = {};
-  $('.region input[type="checkbox"]').click(function () {
+  $('.nav-item-reg input[type="checkbox"]').click(function () {
     if ($(this).is(":checked")) {
       regions[$(this).attr('data-id')] = $(this).attr('data-name');
     } else {
       delete regions[$(this).attr('data-id')];
     }
-    $('.region h6').text(Object.values(regions).join(', '));
+    $('.nav-item-reg h6').text(Object.values(regions).join(', '));
   });
 
-  // Display each place that matches the filters
+// Obtain selected categories
+const categories = {};
+$('.nav-item-cate ul li input[type="checkbox"]').click(function () {
+  if ($(this).is(":checked")) {
+    categories[$(this).attr('data-id')] = $(this).attr('data-name');
+  } else {
+    delete categories[$(this).attr('data-id')];
+  }
+  $('.nav-item-cate h6').text(Object.values(categories).join(', '));
+});
+
+  // Display each tender that matches the filters
   function search (filters = {}) {
     $.ajax({
       type: 'POST',
@@ -55,31 +54,47 @@ $(document).ready(function () {
       dataType: 'json',
       contentType: 'application/json',
       success: function (data) {
-        $('SECTION.places').empty();
-        $('SECTION.places').append(data.map(place => {
-          return `<article>
-                    <div class="title_box">
-                      <h2>${place.name}</h2>
-                      <div class="price_by_night">${place.price_by_night}</div>
-                    </div>
-                    <div class="information">
-                      <div class="max_guest">${place.max_guest} Guests</div>
-                      <div class="number_rooms">${place.number_rooms} Bedrooms</div>
-                      <div class="number_bathrooms">${place.number_bathrooms} Bathrooms</div>
-                    </div>
-                    <div class="description">
-                      ${place.description}
-                    </div>
-                  </article>`
+
+        $('.tenders').empty();
+        $('.tenders').append(data.map(tender => {
+          return `<table class="table table-borderless datatable">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Doc Price</th>
+                        <th scope="col">BidBond Amount</th>
+                        <th scope="col">Annuncment Date</th>
+                        <th scope="col">Closing Date</th>
+                        <th scope="col">Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row"><a href="#">#2457</a></th>
+                        <td><a href="#" class="text-primary">${tender.name}</a></td>
+                        <td>${tender.doc_price}</td>
+                        <td>${tender.bidbond}</td>
+                        <td>${tender.ann_date}</td>
+                       
+                        <td>${tender.closing_date}</td>
+                        {% if ${tender.isactive} %}
+                        <td><span class="badge bg-success">Active</span></td>
+                        {% else %}
+                        <td><span class="badge bg-danger">Closed</span></td>
+                        {% end if %}
+                      </tr>
+                    </tbody>
+                  </table>`
         }));
       }
     });
   };
 
   // Search event with selected filters
-  $('#search').click(function () {
+  $('#mysearch').click(function () {
     const filters = {
-      'htmlcata': Object.keys(cata),
+      'categories': Object.keys(categories),
       'regions': Object.keys(regions),
       'languages': Object.keys(languages)
     };

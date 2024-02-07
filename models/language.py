@@ -15,6 +15,9 @@ class Language(BaseModel, Base):
     if models.storage_t == 'db':
         __tablename__ = 'languages'
         name = Column(String(128), nullable=False)
+        tenders = relationship("Tender",
+                              backref="languages",
+                              cascade="all, delete, delete-orphan")
     else:
         name = ""
 

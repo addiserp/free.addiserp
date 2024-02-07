@@ -5,7 +5,7 @@
 <!-- ======= Sidebar ======= -->
 <aside id="sidebar" class="sidebar">
 
-    <ul class="sidebar-nav" id="sidebar-nav">
+  <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
         <a class="nav-link " href="index.html">
@@ -14,57 +14,55 @@
         </a>
       </li><!-- End Dashboard Nav -->
 
-
-        <div class="language">
-          <h4>Languages</h4>
-				  <h6></h6>
-          <ul>
-               {% for language in languages %}
-               <li>
-                  <input type="checkbox" data-id="{{ language.id }}" data-name="{{ language.name }}" style="margin-right: 10px;">{{ language.name }}
-              </li>
-            {% endfor %}
-        </ul>
-        </div>
-        <div class="region">
-          <h4>Region</h4>
-				  <h6></h6>
-          <ul>
-            {% for region in regions %}
-          <li>
-            <input type="checkbox" data-id="{{ region.id }}" data-name="{{ region.name }}" style="margin-right: 10px;">{{ region.name }}
+          <li class="nav-item">
+            <div class="nav-item-lan">
+              <h4>Languages</h4>
+              <h6></h6>
+              <ul>
+                  {% for language in languages %}
+                  <li>
+                      <input type="checkbox" data-id="{{ language.id }}" data-name="{{ language.name }}" style="margin-right: 10px;">{{ language.name }}
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
           </li>
-            {% endfor %}
-           
-        </div>
-
+          <li class="nav-item">
+            <div class="nav-item-reg">
+              <h4>Region</h4>
+              <h6></h6>
+              <ul id="components-nav-reg" class="nav-content" data-bs-parent="#sidebar-nav">
+                {% for region in regions %}
+              <li>
+                <input type="checkbox" data-id="{{ region.id }}" data-name="{{ region.name }}" style="margin-right: 10px;">{{ region.name }}
+              </li>
+                {% endfor %}
+            </div>
+          </li>
         <div class="daterange">&nbsp;</div>
-        <li class="nav-item">
-       <div class="htmlcategories">
- 
-        <h4>Categories</h4>
-				<h6>&nbsp;</h6>
-        <ul id="components-nav" class="nav-content " data-bs-parent="#sidebar-nav">
-                     
-						{% for catagory in cata %}
-					<li>
-              
-		        <input type="checkbox" data-id="{{ catagory.id }}" data-name="{{ catagory.name }}" style="margin-right: 10px;">{{ catagory.name }}
-					</li>
-						{% endfor %}
-           
-          
-          
-        </ul>
-      </li><!-- End Components Nav -->    
-    </div>
+          <li class="nav-item">
+            <div class="nav-item-cate">
+      
+              <h4>Categories</h4>
+              <h6>&nbsp;</h6>
+              <ul id="components-nav-cate" class="nav-content" data-bs-parent="#sidebar-nav">
+                          
+                  {% for catagory in categories %}
+                <li>
+                    
+                  <input type="checkbox" data-id="{{ catagory.id }}" data-name="{{ catagory.name }}" style="margin-right: 10px;">{{ catagory.name }}
+                </li>
+                  {% endfor %}
+              </ul>
+          </li><!-- End Components Nav -->    
+        </div>
  
     <div class="searchme">
         <button type="button" class="btn btn-primary" id="mysearch"><i class="bi bi-search me-1"></i> Search</button>
         <button type="button" class="btn btn-warning" id="reset"><i class="bi bi-question-circle me-1"></i> Reset</button>
     </div>
 
-  <div class="others">
+    <div class="others">
       <li class="nav-heading">Others</li>
 
       <li class="nav-item">
@@ -102,7 +100,8 @@
         </a>
       </li><!-- End Login Page Nav -->
 
-    </ul>
-  </div>
+   
+    </div>
+  </ul>
   </aside><!-- End Sidebar-->
   {% endblock %}
