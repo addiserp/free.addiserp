@@ -20,7 +20,7 @@ $(document).ready(function () {
     } else {
       delete languages[$(this).attr('data-id')];
     }
-    $('.nav-item-lan h6').text(Object.values(languages).join(', '));
+    //$('.nav-item-lan h6').text(Object.values(languages).join(', '));
   });
 
    // Obtain selected regions
@@ -31,7 +31,7 @@ $(document).ready(function () {
     } else {
       delete regions[$(this).attr('data-id')];
     }
-    $('.nav-item-reg h6').text(Object.values(regions).join(', '));
+    //$('.nav-item-reg h6').text(Object.values(regions).join(', '));
   });
 
 // Obtain selected categories
@@ -42,7 +42,7 @@ $('.nav-item-cate ul li input[type="checkbox"]').click(function () {
   } else {
     delete categories[$(this).attr('data-id')];
   }
-  $('.nav-item-cate h6').text(Object.values(categories).join(', '));
+  //$('.nav-item-cate h6').text(Object.values(categories).join(', '));
 });
 
   // Display each tender that matches the filters

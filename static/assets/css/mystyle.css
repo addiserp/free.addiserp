@@ -1,46 +1,77 @@
 /** free addis custum css */
+.languagetitle {
+  position: fixed;
+  top: 115px;
+  left: 35px;
+  bottom: 0;
+  width: 300px;
+  height: 30px;
+  color: #4154f1;
+
+}
+ 
 .nav-item-lan {
   position: fixed;
-  top: 120px;
+  top: 140px;
   left: 0;
   bottom: 0;
   width: 300px;
-  height: 110px;
+  height: 50px;
   z-index: 996;
   transition: all 0.3s;
-  padding: 20px;
+  padding-left: 25px;
   overflow-y: auto;
   scrollbar-width: auto;
   scrollbar-color: #bbb7cf transparent;
   box-shadow: 0px 0px 20px rgba(1, 41, 112, 0.1);
   background-color: #fff;
+}
+
+.regiontitle {
+  position: fixed;
+  top: 195px;
+  left: 35px;
+  bottom: 0;
+  width: 300px;
+  height: 30px;
+  color: #4154f1;
 }
 .nav-item-reg {
   position: fixed;
-  top: 230px;
+  top: 220px;
   left: 0;
   bottom: 0;
   width: 300px;
   height: 200px;
   z-index: 996;
   transition: all 0.3s;
-  padding: 20px;
+  padding-left: 25px;
   overflow-y: auto;
   scrollbar-width: auto;
   scrollbar-color: #bbb7cf transparent;
   box-shadow: 0px 0px 20px rgba(1, 41, 112, 0.1);
   background-color: #fff;
 }
-.nav-item-cate {
+.Categoriestitle {
   position: fixed;
   top: 425px;
+  left: 35px;
+  bottom: 0;
+  width: 300px;
+  height: 30px;
+  color: #4154f1;
+
+}
+.nav-item-cate {
+  position: fixed;
+  top: 450px;
   left: 0;
   bottom: 0;
   width: 300px;
   height: 200px;
   z-index: 996;
   transition: all 0.3s;
-  padding: 20px;
+  padding-left: 20px;
   overflow-y: auto;
   scrollbar-width: auto;
   scrollbar-color: #bbb7cf transparent;
@@ -53,12 +84,12 @@
   left: 0;
   bottom: 0;
   width: 300px;
-  height: 60px;
+  height: 50px;
   z-index: 996;
   transition: all 0.3s;
-  padding: 20px;
+  padding-left: 20px;
   overflow-y: auto;
-  scrollbar-width: auto;
+ 
   scrollbar-color: #bbb7cf transparent;
   box-shadow: 0px 0px 20px rgba(1, 41, 112, 0.1);
   background-color: #fff;
