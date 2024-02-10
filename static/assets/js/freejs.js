@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-  const HOST = '196.189.23.236';
+  const HOST = '0.0.0.0';
 
   // Get api status
   $.get(`http://${HOST}:5002/api/v1/status/`, data => {
@@ -14,35 +14,35 @@ $(document).ready(function () {
 
    // Obtain selected languages
   const languages = {};
-  $('.nav-item-lan input[type="checkbox"]').click(function () {
+  $('.sidebar-nav #language-nav input[type="checkbox"]').click(function () {
     if ($(this).is(":checked")) {
       languages[$(this).attr('data-id')] = $(this).attr('data-name');
     } else {
       delete languages[$(this).attr('data-id')];
     }
-    //$('.nav-item-lan h6').text(Object.values(languages).join(', '));
+   // $('.sidebar-nav #language-nav h6').text(Object.values(languages).join(', '));
   });
 
    // Obtain selected regions
    const regions = {};
-  $('.nav-item-reg input[type="checkbox"]').click(function () {
+  $('.sidebar-nav #region-nav input[type="checkbox"]').click(function () {
     if ($(this).is(":checked")) {
       regions[$(this).attr('data-id')] = $(this).attr('data-name');
     } else {
       delete regions[$(this).attr('data-id')];
     }
-    //$('.nav-item-reg h6').text(Object.values(regions).join(', '));
+    //$('.sidebar-nav #region-nav h6').text(Object.values(regions).join(', '));
   });
 
 // Obtain selected categories
 const categories = {};
-$('.nav-item-cate ul li input[type="checkbox"]').click(function () {
+$('.sidebar-nav #catagory-nav input[type="checkbox"]').click(function () {
   if ($(this).is(":checked")) {
     categories[$(this).attr('data-id')] = $(this).attr('data-name');
   } else {
     delete categories[$(this).attr('data-id')];
   }
-  //$('.nav-item-cate h6').text(Object.values(categories).join(', '));
+  //$('.sidebar-nav #catagory-nav h6').text(Object.values(categories).join(', '));
 });
 
   // Display each tender that matches the filters

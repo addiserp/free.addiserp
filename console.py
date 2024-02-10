@@ -21,9 +21,9 @@ classes = {"Category": Category, "BaseModel": BaseModel, "Tender": Tender,
 
 
 
-class HBNBCommand(cmd.Cmd):
-    """ HBNH console """
-    prompt = '(hbnb) '
+class FREECommand(cmd.Cmd):
+    """ FREE console """
+    prompt = '(console) '
 
     def do_EOF(self, arg):
         """Exits console"""
@@ -165,4 +165,4 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
 if __name__ == '__main__':
-    HBNBCommand().cmdloop()
+    FREECommand().cmdloop()
