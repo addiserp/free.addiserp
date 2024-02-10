@@ -62,34 +62,37 @@ def delete_tender(tender_id):
     return make_response(jsonify({}), 200)
 
 
-@app_views.route('/regions/<region_id>/tenders', methods=['POST'],
+@app_views.route('/tenders/add', methods=['POST'],
                  strict_slashes=False)
 @swag_from('documentation/tender/post_tender.yml', methods=['POST'])
-def post_tender(region_id):
+def post_tender():
     """
     Creates a Tender
     """
+    if not request.get_json():
+        abort(400, description="Not a JSON")
+
+    data = request.get_json()
+    region_id = data.get('region_id', None)
+    language_id = data.get('language_id', None)
+    
     region = storage.get(Region, region_id)
 
     if not region:
         abort(404)
+    
+    language = storage.get(Language, language_id)
 
-    if not request.get_json():
-        abort(400, description="Not a JSON")
-
-    if 'user_id' not in request.get_json():
-        abort(400, description="Missing user_id")
-
-    data = request.get_json()
-    user = storage.get(User, data['user_id'])
-
-    if not user:
+    if not language:
         abort(404)
+
+
 
     if 'name' not in request.get_json():
         abort(400, description="Missing name")
 
     data["region_id"] = region_id
+    data["language_id"] = language_id
     instance = Tender(**data)
     instance.save()
     return make_response(jsonify(instance.to_dict()), 201)
