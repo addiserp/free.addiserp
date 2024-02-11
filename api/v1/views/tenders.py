@@ -114,24 +114,24 @@ def tender_search():
         categories = data.get('categories', None)
         regions = data.get('regions', None)
         languages = data.get('languages', None)
+    else:
+        categories = ""
+        regions = ""
+        languages =""
     
-    if not data or not len(data) or (
-            not categories and
-            not regions and
-            not languages):
+    if not data and not len(data):
         tenders = storage.all(Tender).values()
         list_tenders = []
         for tender in tenders:
             list_tenders.append(tender.to_dict())
-        return list_tenders
+        return jsonify(list_tenders)
     
     list_tenders = []
-    if languages and regions:
+    if languages and regions and data:
         language_obj = [storage.get(Language, l_id) for l_id in languages]
         region_obj = [storage.get(Region, r_id) for r_id in regions]
         all_obj = [storage.session.query(Tender).filter(Tender.language_id.in_(languages), Tender.region_id.in_(regions))]
-        for i in all_obj:
-            print (i)
+
         for allvalues in all_obj:
             if allvalues:
                 for tender in allvalues:

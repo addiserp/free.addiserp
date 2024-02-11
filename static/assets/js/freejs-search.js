@@ -24,37 +24,22 @@ var getcheckedvalue = function (groupname) {
       contentType: 'application/json',
       success: function (data) {
 
-        $('.tenders').empty();
-        $('.tenders').append(data.map(tender => {
-          return `<table class="table table-borderless datatable">
-                    <thead>
-                      <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Title</th>
-                        <th scope="col">Doc Price</th>
-                        <th scope="col">BidBond Amount</th>
-                        <th scope="col">Annuncment Date</th>
-                        <th scope="col">Closing Date</th>
-                        <th scope="col">Status</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row"><a href="#">#2457</a></th>
+        $('.tenders h2').empty();
+        $('.tenders .table > tbody').empty();
+        $('.tenders .table > tbody').append(data.map(tender => {
+          return `<tr>
+                       
                         <td><a href="#" class="text-primary">${tender.name}</a></td>
                         <td>${tender.doc_price}</td>
                         <td>${tender.bidbond}</td>
+                        <td>${tender.regions}</td>
+                        <td>${tender.categories}</td>
                         <td>${tender.ann_date}</td>
-                       
                         <td>${tender.closing_date}</td>
-                        {% if ${tender.isactive} %}
-                        <td><span class="badge bg-success">Active</span></td>
-                        {% else %}
-                        <td><span class="badge bg-danger">Closed</span></td>
-                        {% end if %}
-                      </tr>
-                    </tbody>
-                  </table>`
+                        <td>${tender.isactive}</td>
+                        
+                        </tr>`
+
         }));
       }
     });
