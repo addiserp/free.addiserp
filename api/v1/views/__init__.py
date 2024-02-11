@@ -10,5 +10,6 @@ from api.v1.views.tenders import *
 from api.v1.views.regions import *
 from api.v1.views.biddocs import *
 from api.v1.views.users import *
+from api.v1.views.language import *
 from api.v1.views.tenders_categories import *
 from api.v1.views.tenders_users import *

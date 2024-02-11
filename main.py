@@ -1,14 +1,16 @@
 #!/usr/bin/python3
 """ Starts a Flash Web Application """
+from flask import Flask, render_template
+from os import environ
+import uuid
 from models import storage
 from models.region import Region
 from models.tender import Tender
 from models.category import Category
 from models.language import Language
 from models.biddoc import Biddoc
-from os import environ
-from flask import Flask, render_template
-import uuid
+
+
 app = Flask(__name__)
 # app.jinja_env.trim_blocks = True
 # app.jinja_env.lstrip_blocks = True
@@ -29,21 +31,12 @@ def index():
     regions = storage.all(Region).values()
     regions = sorted(regions, key=lambda k: k.name)
 
-    """for region in regions:
-        st_ct.append([region, sorted(region.tenders, key=lambda k: k.name)])
-    """
     catagories = storage.all(Category).values()
     catagories = sorted(catagories, key=lambda k: k.name)
     
-    ten_all = []
     tenders = storage.all(Tender).values()
     tenders = sorted(tenders, key=lambda k: k.name)
     
-    """
-    for tender in tenders:
-        ten_all.append([tender, sorted(tender.languages, key=lambda k: k.name)])
-        ten_all.append([tender, sorted(tender.regions, key=lambda k: k.name)])
-    """
     return render_template('main-layout.html', categories=catagories,
                            languages=languages, regions=regions,
                            tenders=tenders)

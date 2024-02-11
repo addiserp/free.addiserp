@@ -2,49 +2,18 @@ $(document).ready(function () {
 
   const HOST = '0.0.0.0';
 
-  // Get api status
-  $.get(`http://${HOST}:5002/api/v1/status/`, data => {
-    if (data.status == "OK") {
-      $('DIV#api_status').addClass("available");
-    } else {
-      $('DIV#api_status').removeClass("available");
-      $('DIV#api_status').addClass("notavailable");
-    }
+
+var getcheckedvalue = function (groupname) {
+  const datas = {};
+  var result = $('input[name="' + groupname + '"]:checked');
+  if (result.length > 0) {
+  result.each(function () {
+    datas[$(this).attr('data-id')] = $(this).attr('data-name');
   });
-
-   // Obtain selected languages
-  const languages = {};
-  $('.sidebar-nav #language-nav input[type="checkbox"]').click(function () {
-    if ($(this).is(":checked")) {
-      languages[$(this).attr('data-id')] = $(this).attr('data-name');
-    } else {
-      delete languages[$(this).attr('data-id')];
-    }
-   // $('.sidebar-nav #language-nav h6').text(Object.values(languages).join(', '));
-  });
-
-   // Obtain selected regions
-   const regions = {};
-  $('.sidebar-nav #region-nav input[type="checkbox"]').click(function () {
-    if ($(this).is(":checked")) {
-      regions[$(this).attr('data-id')] = $(this).attr('data-name');
-    } else {
-      delete regions[$(this).attr('data-id')];
-    }
-    //$('.sidebar-nav #region-nav h6').text(Object.values(regions).join(', '));
-  });
-
-// Obtain selected categories
-const categories = {};
-$('.sidebar-nav #catagory-nav input[type="checkbox"]').click(function () {
-  if ($(this).is(":checked")) {
-    categories[$(this).attr('data-id')] = $(this).attr('data-name');
-  } else {
-    delete categories[$(this).attr('data-id')];
-  }
-  //$('.sidebar-nav #catagory-nav h6').text(Object.values(categories).join(', '));
-});
-
+  return datas;
+}
+};
+ 
   // Display each tender that matches the filters
   function search (filters = {}) {
     $.ajax({
@@ -92,15 +61,18 @@ $('.sidebar-nav #catagory-nav input[type="checkbox"]').click(function () {
   };
 
   // Search event with selected filters
-  $('#mysearch').click(function () {
+  $('.sidebar-nav #mysearch').click(function () {
+    categories = getcheckedvalue('category');
+    regions = getcheckedvalue('region');
+    languages = getcheckedvalue('language');
     const filters = {
-      'categories': Object.keys(categories),
-      'regions': Object.keys(regions),
-      'languages': Object.keys(languages)
+      'categories': categories,
+      'regions': regions,
+      'languages': languages
     };
     search(filters);
   });
-
+ 
   // Display all places when the website is launched
   search();
 });
