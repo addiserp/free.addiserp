@@ -12,7 +12,7 @@ app = Flask(__name__)
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
 app.register_blueprint(app_views)
 """cors = CORS(app, resources={r"/*": {"origins": "0.0.0.0"}})"""
-cors = CORS(app, resources={r"/*": {"origins": "54.237.68.51"}})
+cors = CORS(app, resources={r"/api/v1/*": {"origins": "*"}})
 
 
 @app.teardown_appcontext
@@ -45,7 +45,7 @@ if __name__ == "__main__":
     host = environ.get('FREE_API_HOST')
     port = environ.get('FREE_API_PORT')
     if not host:
-        host = '54.237.68.51'
+        host = '0.0.0.0'
     if not port:
         port = '5002'
     app.run(host=host, port=port, threaded=True)
