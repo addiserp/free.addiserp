@@ -12,7 +12,7 @@ app = Flask(__name__)
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
 app.register_blueprint(app_views)
 """cors = CORS(app, resources={r"/*": {"origins": "0.0.0.0"}})"""
-cors = CORS(app, resources={r"/*": {"origins": "*"}})
+cors = CORS(app, resources={r"/*": {"origins": "54.237.68.51"}})
 
 
 @app.teardown_appcontext
@@ -33,8 +33,8 @@ def not_found(error):
 
 
 app.config['SWAGGER'] = {
-    'title': 'AirBnB clone Restful API',
-    'uiversion': 3
+    'title': 'Free Addis ERP Restful API',
+    'uiversion': 1
 }
 
 Swagger(app)
@@ -45,7 +45,7 @@ if __name__ == "__main__":
     host = environ.get('FREE_API_HOST')
     port = environ.get('FREE_API_PORT')
     if not host:
-        host = '0.0.0.0'
+        host = '54.237.68.51'
     if not port:
         port = '5002'
     app.run(host=host, port=port, threaded=True)

@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-  const HOST = '0.0.0.0';
+  const HOST = '54.237.68.51';
 
 
 var getcheckedvalue = function (groupname) {
