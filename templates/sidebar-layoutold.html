@@ -7,19 +7,19 @@
 
   <ul class="sidebar-nav" id="sidebar-nav">
 
-      <li class="nav-item">
+    <li class="nav-item">
         <a class="nav-link" href="index.html">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
-      </li><!-- End Dashboard Nav -->
+    </li><!-- End Dashboard Nav -->
       <div class="languagetitle">
         <i class="bi bi-translate"></i>
         <span>Languages</span>
  
       </div>
-          <li class="nav-itemlan">
-            <div class="nav-item-lan">
+      <li class="nav-itemlan">
+          <div class="nav-item-lan">
 
               <ul>
                   {% for language in languages %}
@@ -28,14 +28,14 @@
                   </li>
                 {% endfor %}
               </ul>
-            </div>
-          </li>
+          </div>
+      </li>
           <div class="regiontitle">
             <i class="bi bi-globe2"></i>
             <span>&nbsp;Regions</span>
      
           </div>
-          <li class="nav-itemreg">
+      <li class="nav-itemreg">
             <div class="nav-item-reg">
               <ul id="components-nav-reg" class="nav-content" data-bs-parent="#sidebar-nav">
                 {% for region in regions %}
@@ -44,14 +44,14 @@
               </li>
                 {% endfor %}
             </div>
-          </li>
-        <div class="daterange">&nbsp;</div>
-        <div class="Categoriestitle">
-          <i class="bi bi-globe2"></i>
-          <span>&nbsp;Categories</span>
+        </li>
+          <div class="daterange">&nbsp;</div>
+          <div class="Categoriestitle">
+              <i class="bi bi-globe2"></i>
+              <span>&nbsp;Categories</span>
    
-        </div>
-          <li class="nav-itemcate">
+          </div>
+        <li class="nav-itemcate">
             <div class="nav-item-cate">
               <ul id="components-nav-cate" class="nav-content" data-bs-parent="#sidebar-nav">
                           
@@ -62,54 +62,54 @@
                 </li>
                   {% endfor %}
               </ul>
-          </li><!-- End Components Nav -->    
-        </div>
+            </div>
+        </li><!-- End Components Nav -->    
+       
  
-    <div class="searchme">
-        <button type="button" class="btn btn-primary" id="mysearch"><i class="bi bi-search me-1"></i> Search</button>
-        <button type="button" class="btn btn-warning" id="reset"><i class="bi bi-question-circle me-1"></i> Reset</button>
-    </div>
+          <div class="searchme">
+            <button type="button" class="btn btn-primary" id="mysearch"><i class="bi bi-search me-1"></i> Search</button>
+            <button type="button" class="btn btn-warning" id="reset"><i class="bi bi-question-circle me-1"></i> Reset</button>
+          </div>
 
-    <div class="others">
+    <div class="others">     
       <li class="nav-heading">Others</li>
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="users-profile.html">
-          <i class="bi bi-person"></i>
-          <span>Profile</span>
-        </a>
-      </li><!-- End Profile Page Nav -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="users-profile.html">
+              <i class="bi bi-person"></i>
+              <span>Profile</span>
+            </a>
+        </li><!-- End Profile Page Nav -->
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-faq.html">
-          <i class="bi bi-question-circle"></i>
-          <span>F.A.Q</span>
-        </a>
-      </li><!-- End F.A.Q Page Nav -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="pages-faq.html">
+              <i class="bi bi-question-circle"></i>
+              <span>F.A.Q</span>
+            </a>
+        </li><!-- End F.A.Q Page Nav -->
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-contact.html">
-          <i class="bi bi-envelope"></i>
-          <span>Contact</span>
-        </a>
-      </li><!-- End Contact Page Nav -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="pages-contact.html">
+              <i class="bi bi-envelope"></i>
+              <span>Contact</span>
+            </a>
+        </li><!-- End Contact Page Nav -->
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-register.html">
-          <i class="bi bi-card-list"></i>
-          <span>Register</span>
-        </a>
-      </li><!-- End Register Page Nav -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="pages-register.html">
+              <i class="bi bi-card-list"></i>
+              <span>Register</span>
+            </a>
+        </li><!-- End Register Page Nav -->
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-login.html">
-          <i class="bi bi-box-arrow-in-right"></i>
-          <span>Login</span>
-        </a>
-      </li><!-- End Login Page Nav -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="pages-login.html">
+              <i class="bi bi-box-arrow-in-right"></i>
+              <span>Login</span>
+            </a>
+        </li><!-- End Login Page Nav -->
 
-   
-    </div>
-  </ul>
-  </aside><!-- End Sidebar-->
+      </ul>
+    </d
+</aside><!-- End Sidebar-->
   {% endblock %}

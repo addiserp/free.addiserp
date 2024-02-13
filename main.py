@@ -12,9 +12,7 @@ from models.biddoc import Biddoc
 
 
 app = Flask(__name__)
-# app.jinja_env.trim_blocks = True
-# app.jinja_env.lstrip_blocks = True
-# FREE_MYSQL_USER=free_dev FREE_MYSQL_PWD=free_dev_pwd FREE_MYSQL_HOST=localhost FREE_MYSQL_DB=free_dev_db FREE_TYPE_STORAGE=db
+
 
 @app.teardown_appcontext
 def close_db(error):
@@ -25,21 +23,38 @@ def close_db(error):
 @app.route('/', strict_slashes=False)
 def index():
     """ Free Addis is alive! """
-    languages = storage.all(Language).values()
-    languages = sorted(languages, key=lambda k: k.name)
-
-    regions = storage.all(Region).values()
-    regions = sorted(regions, key=lambda k: k.name)
-
-    catagories = storage.all(Category).values()
-    catagories = sorted(catagories, key=lambda k: k.name)
     
-    tenders = storage.all(Tender).values()
-    tenders = sorted(tenders, key=lambda k: k.name)
+    return render_template('main-layout.html',cache_id=str(uuid.uuid4()))
+
+@app.route('/contacts', strict_slashes=False)
+def contact():
+    """ Free Addis erp contacts page! """
     
-    return render_template('main-layout.html', categories=catagories,
-                           languages=languages, regions=regions,
-                           tenders=tenders)
+    return render_template('pages-contact.html',cache_id=str(uuid.uuid4()))
+
+@app.route('/login', strict_slashes=False)
+def login():
+    """ Free Addis erp loginpage page! """
+    
+    return render_template('pages-login.html',cache_id=str(uuid.uuid4()))
+
+@app.route('/register', strict_slashes=False)
+def register():
+    """ Free Addis erp loginpage page! """
+    
+    return render_template('pages-register.html',cache_id=str(uuid.uuid4()))
+
+@app.route('/profile', strict_slashes=False)
+def profile():
+    """ Free Addis erp profile page! """
+    
+    return render_template('users-profile.html',cache_id=str(uuid.uuid4()))
+
+@app.route('/dashboard', strict_slashes=False)
+def dashboard():
+    """ Free Addis erp dashboard page! """
+    
+    return render_template('pages-dashboard.html',cache_id=str(uuid.uuid4()))
 
 
 if __name__ == "__main__":
