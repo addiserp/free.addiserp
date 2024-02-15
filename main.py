@@ -56,6 +56,12 @@ def dashboard():
     
     return render_template('pages-dashboard.html',cache_id=str(uuid.uuid4()))
 
+@app.route('/about', strict_slashes=False)
+def about():
+    """ Free Addis erp about page! """
+
+    return render_template('pages-landing.html', cache_id=str(uuid.uuid4()))
+
 
 if __name__ == "__main__":
     """ Main Function """
