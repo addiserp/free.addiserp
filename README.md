@@ -1,5 +1,5 @@
 # Free Tenders AddisERP
-
+![Screenshot](static/images/hero.jpg)
 ## Introduction
 
 Welcome to Free Tenders AddisERP – Your Seamless Tender Management Platform!
@@ -47,7 +47,8 @@ Explore opportunities, connect with businesses, and stay updated on the latest t
 Contributing
 
 We welcome contributions! If you'd like to contribute, please follow our Contribution Guidelines.
-Related Projects
+
+## Related Projects
 
     https://github.com/addiserp/AirBnB_clone_v4.git
 
