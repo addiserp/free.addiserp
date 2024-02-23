@@ -1,6 +1,7 @@
 $(document).ready(function () {
 
   const HOST = '0.0.0.0';
+//  const HOST = '54.227.128.161';
 
   // Get api status
   $.get(`http://${HOST}:5002/api/v1/status/`, data => {

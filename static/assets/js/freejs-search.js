@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
   const HOST = '0.0.0.0';
-
+//  const HOST = '54.227.128.161';
 
 var getcheckedvalue = function (groupname) {
   const datas = {};
@@ -32,8 +32,7 @@ var getcheckedvalue = function (groupname) {
                         <td><a href="#" class="text-primary">${tender.name}</a></td>
                         <td>${tender.doc_price}</td>
                         <td>${tender.bidbond}</td>
-                        <td>${tender.regions}</td>
-                        <td>${tender.categories}</td>
+
                         <td>${tender.ann_date}</td>
                         <td>${tender.closing_date}</td>
                         <td>${tender.isactive}</td>
