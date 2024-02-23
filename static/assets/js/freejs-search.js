@@ -25,17 +25,15 @@ var getcheckedvalue = function (groupname) {
       success: function (data) {
 
         $('.tenders h2').empty();
+        $('.tenders h2').append("Search Result for:")
         $('.tenders .table > tbody').empty();
         $('.tenders .table > tbody').append(data.map(tender => {
           return `<tr>
                        
-                        <td><a href="#" class="text-primary">${tender.name}</a></td>
-                        <td>${tender.doc_price}</td>
-                        <td>${tender.bidbond}</td>
-
-                        <td>${tender.ann_date}</td>
-                        <td>${tender.closing_date}</td>
-                        <td>${tender.isactive}</td>
+                        <td><a href="#" class="text-primary">${tender.name}</a></br>
+                        Document Price:-${tender.doc_price} Bidbond Amount :-${tender.bidbond} </br>
+                        Date Of Announcment :-${tender.ann_date} closing Date :- ${tender.closing_date}
+                        Is Active :- ${tender.isactive}</td>
                         
                         </tr>`
 
