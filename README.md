@@ -118,7 +118,68 @@ Classes inherited from Base Model:
 * freejs-load.js  - a jquary for loading leftside nav bars menu items(language,region & categories)
 * freejs-search.js - a jquary for searching database using API POST method and retrive data and replace main section area in html
 
-**Next Iteration:**
+
+#### `/tests` directory contains all unit test cases for this project:
+[/test_models/test_base_model.py](/tests/test_models/test_base_model.py) - Contains the TestBaseModel and TestBaseModelDocs classes
+TestBaseModelDocs class:
+* `def setUpClass(cls)`- Set up for the doc tests
+* `def test_pep8_conformance_base_model(self)` - Test that models/base_model.py conforms to PEP8
+* `def test_pep8_conformance_test_base_model(self)` - Test that tests/test_models/test_base_model.py conforms to PEP8
+* `def test_bm_module_docstring(self)` - Test for the base_model.py module docstring
+* `def test_bm_class_docstring(self)` - Test for the BaseModel class docstring
+* `def test_bm_func_docstrings(self)` - Test for the presence of docstrings in BaseModel methods
+
+TestBaseModel class:
+* `def test_is_base_model(self)` - Test that the instatiation of a BaseModel works
+* `def test_created_at_instantiation(self)` - Test created_at is a pub. instance attribute of type datetime
+* `def test_updated_at_instantiation(self)` - Test updated_at is a pub. instance attribute of type datetime
+* `def test_diff_datetime_objs(self)` - Test that two BaseModel instances have different datetime objects
+
+[/test_models/test_category.py](/tests/test_models/test_category.py) - Contains the TestcategoryDocs class:
+* `def setUpClass(cls)` - Set up for the doc tests
+* `def test_pep8_conformance_category(self)` - Test that models/category.py conforms to PEP8
+* `def test_pep8_conformance_test_category(self)` - Test that tests/test_models/test_category.py conforms to PEP8
+* `def test_category_module_docstring(self)` - Test for the category.py module docstring
+* `def test_category_class_docstring(self)` - Test for the category class docstring
+
+[/test_models/test_region.py](/tests/test_models/test_region.py) - Contains the TestregionDocs class:
+* `def setUpClass(cls)` - Set up for the doc tests
+* `def test_pep8_conformance_region(self)` - Test that models/region.py conforms to PEP8
+* `def test_pep8_conformance_test_region(self)` - Test that tests/test_models/test_region.py conforms to PEP8
+* `def test_region_module_docstring(self)` - Test for the region.py module docstring
+* `def test_region_class_docstring(self)` - Test for the region class docstring
+
+[/test_models/test_tender.py](/tests/test_models/test_tender.py) - Contains the TesttenderDocs class:
+* `def setUpClass(cls)` - Set up for the doc tests
+* `def test_pep8_conformance_tender(self)` - Test that models/tender.py conforms to PEP8
+* `def test_pep8_conformance_test_tender(self)` - Test that tests/test_models/test_tender.py conforms to PEP8
+* `def test_tender_module_docstring(self)` - Test for the tender.py module docstring
+* `def test_tender_class_docstring(self)` - Test for the tender class docstring
+
+## Examples of use
+```
+ubuntu@112121-web-01::~/free.addiserp$./freeconsole.py
+(free) help
+
+Documented commands (type help <topic>):
+========================================
+EOF  all  create  destroy  help  quit  show  update
+
+(free) all MyModel
+** class doesn't exist **
+(free) create BaseModel
+7da56403-cc45-4f1c-ad32-bfafeb2bb050
+(free) all BaseModel
+[[BaseModel] (7da56403-cc45-4f1c-ad32-bfafeb2bb050) {'updated_at': datetime.datetime(2017, 9, 28, 9, 50, 46, 772167), 'id': '7da56403-cc45-4f1c-ad32-bfafeb2bb050', 'created_at': datetime.datetime(2017, 9, 28, 9, 50, 46, 772123)}]
+(free) show BaseModel 7da56403-cc45-4f1c-ad32-bfafeb2bb050
+[BaseModel] (7da56403-cc45-4f1c-ad32-bfafeb2bb050) {'updated_at': datetime.datetime(2017, 9, 28, 9, 50, 46, 772167), 'id': '7da56403-cc45-4f1c-ad32-bfafeb2bb050', 'created_at': datetime.datetime(2017, 9, 28, 9, 50, 46, 772123)}
+(free) destroy BaseModel 7da56403-cc45-4f1c-ad32-bfafeb2bb050
+(free) show BaseModel 7da56403-cc45-4f1c-ad32-bfafeb2bb050
+** no instance found **
+(free) quit
+```
+
+## Next Iteration:
 In the future, we envision incorporating machine learning algorithms to provide personalized recommendations based on user preferences. Enhancements in data security and scalability will be a focus, ensuring the platform can handle increased user engagement.
 
 ## Screenshots
