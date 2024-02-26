@@ -25,16 +25,16 @@
   <link href="../static/assets/vendor/quill/quill.bubble.css?cache_id={{ cache_id }}" rel="stylesheet">
   <link href="../static/assets/vendor/remixicon/remixicon.css?cache_id={{ cache_id }}" rel="stylesheet">
   <link href="../static/assets/vendor/simple-datatables/style.css?cache_id={{ cache_id }}" rel="stylesheet">
-  <link href="../static/assets/css/dataTables.bootstrap4.min.css?cache_id={{ cache_id }}" rel="stylesheet" crossorigin="anonymous" />
-
-  <!--jquary-->
-  <script src="../static/assets/js/jquery-3.2.1.min.js?cache_id={{ cache_id }}"></script>
+  <link href="../static/assets/css/dataTables.bootstrap4.min.css?cache_id={{ cache_id }}" rel="stylesheet">
+  
 
   <!-- Template Main CSS File -->
   <link href="../static/assets/css/style.css?cache_id={{ cache_id }}" rel="stylesheet">
   <link href="../static/assets/css/mystyle.css?cache_id={{ cache_id }}" rel="stylesheet">
  
-
+  <!--jquary-->
+  <script src="../static/assets/js/jquery-3.2.1.min.js?cache_id={{ cache_id }}"></script>
+  <script src="../static/assets/js/all.min.js?cache_id={{ cache_id }}"></script>
 
 </head>
 
@@ -270,6 +270,8 @@
     </nav><!-- End Icons Navigation -->
 
   </header><!-- End Header -->
+  <!-- load from jquary -->
+  
   <div id="sidecontent">{% block sidecontent %}{% endblock %}</div>
   <div id="maincontent">{% block maincontent %}{% endblock %}</div>
   
@@ -301,12 +303,32 @@
   <!-- Template Main JS File -->
   <script src="../static/assets/js/jquery.dataTables.min.js?cache_id={{ cache_id }}"></script>
   <script src="../static/assets/js/dataTables.bootstrap4.min.js?cache_id={{ cache_id }}"></script>
+
+  <script src="../static/assets/js/scripts.js?cache_id={{ cache_id }}"></script>
+
+ 
+
+  <script src="../static/assets/js/jquery.dataTables.min.js?cache_id={{ cache_id }}" crossorigin="anonymous"></script>
+  <script src="../static/assets/js/dataTables.bootstrap4.min.js?cache_id={{ cache_id }}" crossorigin="anonymous"></script>
  
   <!-- Template Main JS File -->
-  <script src="../static/assets/js/main.js"></script>
-  <script src="../static/assets/js/mymain.js"></script>
+  <script src="../static/assets/js/main.js?cache_id={{ cache_id }}"></script>
+ 
+<!--Main system load script-->
+<script type="text/javascript" src="../static/assets/js/freejs-load.js?cache_id={{ cache_id }}"></script>
+<script type="text/javascript" src="../static/assets/js/freejs-search.js?cache_id={{ cache_id }}"></script>
+<!--end of main system-->
+<script language=javascript>
+     
+  // Basic example
+  $(document).ready(function () {
+      $('#dataTable1').DataTable({
+          "order": [[1, "desc"]]
+      });
+      $('.dataTables_length').addClass('bs-select');
+  });
+</script>
 
-  
   <script language=javascript>
     $(document).ready(function () {
               var groupColumn = 0;
@@ -345,8 +367,7 @@
               });
           });
 </script>
-<script type="text/javascript" src="../static/assets/js/freejs-load.js?cache_id={{ cache_id }}"></script>
-<script type="text/javascript" src="../static/assets/js/freejs-search.js?cache_id={{ cache_id }}"></script>
+
 </body>
 
 </html>

@@ -29,11 +29,11 @@ var getcheckedvalue = function (groupname) {
         $('.tenders .table > tbody').empty();
         $('.tenders .table > tbody').append(data.map(tender => {
           return `<tr>
-                       
+                        <th scope="row">${tender.lid}</th>
                         <td><a href="#" class="text-primary">${tender.name}</a></br>
                         Document Price:-${tender.doc_price} Bidbond Amount :-${tender.bidbond} </br>
                         Date Of Announcment :-${tender.ann_date} closing Date :- ${tender.closing_date}
-                        Is Active :- ${tender.isactive}</td>
+                        Status :- ${tender.isactive}</td>
                         
                         </tr>`
 

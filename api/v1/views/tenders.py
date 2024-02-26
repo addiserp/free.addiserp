@@ -123,7 +123,16 @@ def tender_search():
         tenders = storage.all(Tender).values()
         list_tenders = []
         for tender in tenders:
+      
             list_tenders.append(tender.to_dict())
+        
+        for key in range(len(list_tenders)):
+
+            list_tenders[key]['lid'] = str(key+1)
+            if list_tenders[key]['isactive']:
+                list_tenders[key]['isactive'] = 'Active'
+            else :
+                list_tenders[key]['isactive'] = 'Closed' 
         return jsonify(list_tenders)
     
     list_tenders = []
@@ -161,11 +170,23 @@ def tender_search():
         list_tenders = [tender for tender in list_tenders
                        if all([am in tender.categories
                                for am in categories_obj])]
-    
+        
     tenders = []
     for p in list_tenders:
         d = p.to_dict()
         d.pop('categories', None)
         tenders.append(d)
+ 
+    """file = open('items.txt','w')"""
+
+    for key in range(len(tenders)):
+
+        tenders[key]['lid'] = str(key+1)
+        if tenders[key]['isactive']:
+            tenders[key]['isactive'] = 'Active'
+        else :
+            tenders[key]['isactive'] = 'Closed' 
+        """file.writelines("{}".format(tenders[key])+"\n")
+    file.close"""
 
     return jsonify(tenders)
